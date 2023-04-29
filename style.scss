@@ -61,6 +61,7 @@ body {
     margin-top: 1rem;
   }
   & select {
+    position: relative;
     margin-top: 20px;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -76,11 +77,9 @@ body {
     font-weight: 700;
     font-size: 1.2rem;
     color: white;
-  }
-  & select::after {
-    content: "\25BC";
-    position: absolute;
-    color: white;
+    option:not(:checked) {
+      color: #bdbdbd;
+    }
   }
   &__colors__color {
     -webkit-appearance: none;
@@ -94,7 +93,7 @@ body {
   &__colors__color::-moz-color-swatch {
     @include borders(50%);
   }
-  &__colors__color::-webkit-color-swatch-wrapper {
+  &__colors__color::-webkit-color-swatch {
     @include borders(50%);
     border: none;
   }
@@ -113,12 +112,13 @@ body {
     text-align: center;
     font-weight: 700;
     @include flexCenter;
-    img {
-      @include setDieminsions(20px, 20px);
-      margin-left: 5px;
-    }
     &:active {
       background-image: linear-gradient(to bottom, #54575a, #6c797d);
     }
   }
+}
+
+img {
+  @include setDieminsions(20px, 20px);
+  margin-left: 5px;
 }
